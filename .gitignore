@@ -1,1 +1,7 @@
 /.idea/
+/consumer/consumer.iml
+/lqrpc-client-spring-boot-starter/lqrpc-client-spring-boot-starter.iml
+/lqrpc-core/lqrpc-core.iml
+/lqrpc-server-spring-boot-starter/lqrpc-server-spring-boot-starter.iml
+/provider/provider.iml
+/provider-api/provider-api.iml
