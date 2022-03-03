@@ -11,4 +11,5 @@ import java.lang.annotation.*;
 public @interface LqRpcAutowired {
 
     String version() default "1.0";
+
 }
