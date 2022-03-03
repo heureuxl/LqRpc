@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <lqrpc.version>0.1</lqrpc.version>
+        <spring.version>2.5.0</spring.version>
+        <lombok.version>1.18.20</lombok.version>
+    </properties>
+
+    <groupId>com.lq.lqrpc</groupId>
+    <artifactId>LqRpc</artifactId>
+    <packaging>pom</packaging>
+    <version>${lqrpc.version}</version>
+
+    <modules>
+        <module>consumer</module>
+        <module>provider</module>
+        <module>provider-api</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.lq.lqrpc</groupId>
+                <artifactId>consumer</artifactId>
+                <version>${lqrpc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lq.lqrpc</groupId>
+                <artifactId>provider</artifactId>
+                <version>${lqrpc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lq.lqrpc</groupId>
+                <artifactId>provider-api</artifactId>
+                <version>${lqrpc.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
