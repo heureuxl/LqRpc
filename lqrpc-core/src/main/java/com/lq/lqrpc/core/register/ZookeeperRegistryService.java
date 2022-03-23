@@ -10,6 +10,8 @@ import org.apache.curator.x.discovery.ServiceInstance;
 import org.apache.curator.x.discovery.ServiceInstanceBuilder;
 import org.apache.curator.x.discovery.details.JsonInstanceSerializer;
 
+import java.io.IOException;
+
 /**
  * @ClassName: ZookeeperRegistryService
  * @Description: 向zookeeper注册服务
@@ -54,7 +56,7 @@ public class ZookeeperRegistryService implements RegistryService{
     }
 
     @Override
-    public void destroy(ServiceInfo serviceInfo) throws Exception {
+    public void unRegister(ServiceInfo serviceInfo) throws Exception {
         ServiceInstance<ServiceInfo> serviceInstance = ServiceInstance.<ServiceInfo>builder()
                 .address(ZK_BASE_PATH)
                 .name(serviceInfo.getServiceName())
@@ -62,5 +64,10 @@ public class ZookeeperRegistryService implements RegistryService{
                 .payload(serviceInfo)
                 .build();
         serviceDiscovery.unregisterService(serviceInstance);
+    }
+
+    @Override
+    public void destroy() throws IOException {
+        serviceDiscovery.close();
     }
 }

@@ -2,6 +2,8 @@ package com.lq.lqrpc.core.register;
 
 import com.lq.lqrpc.core.common.ServiceInfo;
 
+import java.io.IOException;
+
 /**
  * 服务注册和销毁
  */
@@ -11,5 +13,8 @@ public interface RegistryService {
     void register(ServiceInfo serviceInfo) throws Exception;
 
     // 销毁服务
-    void destroy(ServiceInfo serviceInfo) throws Exception;
+    void unRegister(ServiceInfo serviceInfo) throws Exception;
+
+    // 销毁服务
+    void destroy() throws IOException;
 }

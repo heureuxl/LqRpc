@@ -42,7 +42,9 @@ public class RpcServerAutoConfiguration {
     // 实例化bean后进行服务注册，并且当服务销毁后同步删除注册中心中服务
     @Bean
     @ConditionalOnMissingBean(RpcServerProvider.class)
-    public RpcServerProvider rpcServerProvider(){
-        return rpcServerProvider();
+    public RpcServerProvider rpcServerProvider(@Autowired RegistryService registryService,
+                                               @Autowired RpcServer rpcServer,
+                                               @Autowired RpcServerProperties rpcServerProperties){
+        return new RpcServerProvider(rpcServer, registryService, rpcServerProperties);
     }
 }

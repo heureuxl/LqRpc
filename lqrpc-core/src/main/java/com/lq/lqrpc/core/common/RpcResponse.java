@@ -14,6 +14,8 @@ import java.io.Serializable;
 @Data
 public class RpcResponse implements Serializable {
 
+    // 数据
     private Object data;
+    // 异常信息
     private String message;
 }
