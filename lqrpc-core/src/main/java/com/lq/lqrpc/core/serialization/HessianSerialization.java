@@ -2,7 +2,6 @@ package com.lq.lqrpc.core.serialization;
 
 import com.caucho.hessian.io.HessianSerializerInput;
 import com.caucho.hessian.io.HessianSerializerOutput;
-import com.sun.xml.internal.ws.encoding.soap.SerializationException;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
