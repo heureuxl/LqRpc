@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * @ClassName: ClientStubProxyFactory
- * @Description: TODO
+ * @Description: client代理工厂类
  * @author: liuqi
  * @date: 2022/3/3 下午5:37
  * @Version: 0.0.1
@@ -27,8 +27,8 @@ public class ClientStubProxyFactory {
      * @return 代理对象
      */
     public <T> T getProxy(Class clazz, String version, DiscoveryService discoveryService, RpcClientProperties rpcClientProperties){
-        return (T) objectCache.computeIfAbsent(clazz, clz -> {
-            Proxy.newProxyInstance(clz.getClassLoader(), new Class[]{clz}, new ClientStubInvocationHandler(version,discoveryService,clz,rpcClientProperties) );
-        })
+        return (T) objectCache.computeIfAbsent(clazz, clz ->
+            Proxy.newProxyInstance(clz.getClassLoader(), new Class[]{clz}, new ClientStubInvocationHandler(version,discoveryService,clz,rpcClientProperties) )
+        );
     }
 }
