@@ -23,7 +23,7 @@ import java.util.List;
  * @date: 2022/3/3 下午4:05
  * @Version: 0.0.1
  */
-public class RpcDecoder<T> extends ByteToMessageDecoder {
+public class RpcDecoder extends ByteToMessageDecoder {
 
     /**
      *
@@ -85,6 +85,8 @@ public class RpcDecoder<T> extends ByteToMessageDecoder {
         header.setRequestId(String.valueOf(requestId));
         header.setSerialization(serializeType);
         header.setStatus(status);
+        header.setType(type);
+        header.setVersion(version);
 
         // 序列化数据(消息体)并放入协议规范的消息对象中
         LqRpcSerialization seriaization = SerializationFactory.getSeriaization(SerializationTypeEnum.parseType(serializeType));
@@ -105,8 +107,9 @@ public class RpcDecoder<T> extends ByteToMessageDecoder {
                     MessageProtocol<RpcResponse> messageProtocol = new MessageProtocol<>();
                     messageProtocol.setHeader(header);
                     messageProtocol.setBody(response);
-                    out.add(response);
+                    out.add(messageProtocol);
                 }
+                break;
         }
     }
 }

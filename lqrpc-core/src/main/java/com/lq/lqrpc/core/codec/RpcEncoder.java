@@ -57,12 +57,12 @@ public class RpcEncoder<T> extends MessageToByteEncoder<MessageProtocol<T>> {
         // 消息ID
         String requestId = header.getRequestId();
         byteBuf.writeCharSequence(requestId, Charset.forName("UTF-8"));
-        // 数据长度
-        int msgLen = header.getMsgLen();
-        byteBuf.writeInt(msgLen);
         // 序列化数据内容
         LqRpcSerialization seriaization = SerializationFactory.getSeriaization(SerializationTypeEnum.parseType(serialization));
         byte[] data = seriaization.serialize(tMessageProtocol.getBody());
+        // 数据长度
+        byteBuf.writeInt(data.length);
+        // 写出数据
         byteBuf.writeBytes(data);
     }
 }

@@ -52,6 +52,8 @@ public class RpcRequestHandler extends SimpleChannelInboundHandler<MessageProtoc
                 messageProtocol.setHeader(header);
                 log.error("process request {} error", header.getRequestId(), throwable);
             }
+            // 把数据写回去
+            channelHandlerContext.writeAndFlush(messageProtocol);
         });
     }
 
@@ -62,7 +64,7 @@ public class RpcRequestHandler extends SimpleChannelInboundHandler<MessageProtoc
                 throw new RuntimeException(String.format("service not exist: %s !", request.getServiceName()));
             }
             Method method = bean.getClass().getMethod(request.getMethod(), request.getParamsType());
-            return method.invoke(method, request.getParams());
+            return method.invoke(bean, request.getParams());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -23,7 +23,7 @@ public class ZookeeperDiscoveryService implements DiscoveryService{
     // 重连次数
     private static final int MAX_RETRIES = 3;
     // zk基本节点
-    private static final String ZK_BASE_PATH = "/lqrpc";
+    private static final String ZK_BASE_PATH = "/lqrpc_do";
 
     private ServiceDiscovery<ServiceInfo> serviceDiscovery;
 

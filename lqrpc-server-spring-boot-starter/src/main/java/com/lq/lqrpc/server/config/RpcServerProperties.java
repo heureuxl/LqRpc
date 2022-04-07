@@ -15,7 +15,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class RpcServerProperties {
 
     // 服务启动端口
-    private Integer port = 5000;
+    private Integer port = 9991;
 
     // 注册中心地址
     private String registerAddress;

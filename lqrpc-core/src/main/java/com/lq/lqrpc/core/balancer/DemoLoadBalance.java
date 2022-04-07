@@ -16,8 +16,8 @@ public class DemoLoadBalance implements LoadBalance{
     @Override
     public ServiceInfo chooseService(List<ServiceInfo> services) {
         if (services != null && services.size()!=0){
-            return null;
+            return services.get(0);
         }
-        return services.get(0);
+        return null;
     }
 }

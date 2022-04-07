@@ -24,7 +24,7 @@ public class ZookeeperRegistryService implements RegistryService{
     public static final int BASE_SLEEP_TIME_MS = 1000;
     public static final int MAX_RETRIES = 3;
     // zk路径
-    public static final String ZK_BASE_PATH = "/lqrpc";
+    public static final String ZK_BASE_PATH = "/lqrpc_do";
 
     private ServiceDiscovery<ServiceInfo> serviceDiscovery;
 

@@ -10,19 +10,16 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <properties>
-        <lqrpc.version>0.1</lqrpc.version>
-    </properties>
 
     <groupId>com.lq.lqrpc</groupId>
     <artifactId>lqrpc-client-spring-boot-starter</artifactId>
-    <version>${lqrpc.version}</version>
+    <version>0.1</version>
 
     <dependencies>
         <dependency>
             <groupId>com.lq.lqrpc</groupId>
             <artifactId>lqrpc-core</artifactId>
-            <version>${lqrpc.version}</version>
+            <version>0.1</version>
         </dependency>
 
         <dependency>

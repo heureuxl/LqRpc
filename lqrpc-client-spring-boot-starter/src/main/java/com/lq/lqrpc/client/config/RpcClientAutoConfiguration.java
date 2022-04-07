@@ -1,6 +1,7 @@
 package com.lq.lqrpc.client.config;
 
 
+import com.lq.lqrpc.client.processor.RpcClientProcessor;
 import com.lq.lqrpc.client.proxy.ClientStubProxyFactory;
 import com.lq.lqrpc.core.balancer.DemoLoadBalance;
 import com.lq.lqrpc.core.balancer.LoadBalance;
@@ -33,7 +34,7 @@ public class RpcClientAutoConfiguration {
      */
     @Bean
     public RpcClientProperties rpcClientProperties(Environment environment){
-        BindResult<RpcClientProperties> bind = Binder.get(environment).bind("rpc.client", RpcClientProperties.class);
+        BindResult<RpcClientProperties> bind = Binder.get(environment).bind("lqrpc.client", RpcClientProperties.class);
         return bind.get();
     }
 
@@ -50,7 +51,7 @@ public class RpcClientAutoConfiguration {
     @Primary
     @Bean(name = "loadBalance")
     @ConditionalOnMissingBean
-    @ConditionalOnProperty(prefix = "rpc.client", name = "balance", havingValue = "", matchIfMissing = true)
+    @ConditionalOnProperty(prefix = "lqrpc.client", name = "balance", havingValue = "DemoLoadBalance", matchIfMissing = true)
     public LoadBalance demoBalance(){return new DemoLoadBalance(); }
 
     /**
@@ -64,7 +65,13 @@ public class RpcClientAutoConfiguration {
         return new ZookeeperDiscoveryService(properties.getDiscoveryAddr(), loadBalance);
     }
 
-
+    @Bean
+    @ConditionalOnMissingBean
+    public RpcClientProcessor rpcClientProcessor(@Autowired ClientStubProxyFactory clientStubProxyFactory,
+                                                 @Autowired DiscoveryService discoveryService,
+                                                 @Autowired RpcClientProperties properties) {
+        return new RpcClientProcessor(properties, discoveryService, clientStubProxyFactory);
+    }
 
 
 }

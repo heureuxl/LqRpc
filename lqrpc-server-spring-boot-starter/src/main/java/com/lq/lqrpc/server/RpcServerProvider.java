@@ -50,7 +50,7 @@ public class RpcServerProvider implements BeanPostProcessor, CommandLineRunner {
             // 服务注册
             try {
                 ServiceInfo serviceInfo = new ServiceInfo();
-                serviceInfo.setServiceName(serverName);
+                serviceInfo.setServiceName(ServiceNameUtil.serviceKey(serverName,version));
                 serviceInfo.setAddress(InetAddress.getLocalHost().getHostAddress());
                 serviceInfo.setAppName(rpcServerProperties.getAppName());
                 serviceInfo.setPort(String.valueOf(rpcServerProperties.getPort()));

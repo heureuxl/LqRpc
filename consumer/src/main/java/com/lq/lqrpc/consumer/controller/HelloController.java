@@ -2,7 +2,7 @@ package com.lq.lqrpc.consumer.controller;
 
 import com.lq.lqrpc.api.HelloService;
 import com.lq.lqrpc.client.annotation.LqRpcAutowired;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
  * @date: 2022/3/3 下午3:00
  * @Version: 0.0.1
  */
-@Controller
+@RestController
 public class HelloController {
 
-    @LqRpcAutowired
+    @LqRpcAutowired(version = "1.0")
     private HelloService helloService;
 
     @GetMapping("/hello")
