@@ -1,0 +1,11 @@
+app:
+    id: LqRpc #应用ID
+apollo:
+    autoUpdateInjectedSpringProperties: true #是否开启 Spring 参数自动更新
+    meta: http://47.95.120.193:8090  #DEV环境配置中心地址
+    bootstrap:
+        enabled: true #是否开启 Apollo
+        namespaces: application,provider.yml #设置 Namespace
+        eagerLoad:
+            enabled: false #将 Apollo 加载提到初始化日志系统之前
+
