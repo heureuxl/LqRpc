@@ -19,12 +19,6 @@
         </dependency>
         <dependency>
             <groupId>com.lq.lqrpc</groupId>
-            <artifactId>lqrpc-client-spring-boot-starter</artifactId>
-            <version>0.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.lq.lqrpc</groupId>
             <artifactId>provider-api</artifactId>
         </dependency>
     </dependencies>

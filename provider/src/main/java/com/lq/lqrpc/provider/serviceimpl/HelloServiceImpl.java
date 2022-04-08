@@ -1,7 +1,7 @@
 package com.lq.lqrpc.provider.serviceimpl;
 
 import com.lq.lqrpc.api.HelloService;
-import com.lq.lqrpc.server.annotation.LqRpcService;
+import com.lq.lqrpc.core.annotation.LqRpcService;
 
 /**
  * @ClassName: HelloServiceImpl

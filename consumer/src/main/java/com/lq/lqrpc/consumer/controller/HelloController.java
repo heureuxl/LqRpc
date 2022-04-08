@@ -1,9 +1,7 @@
 package com.lq.lqrpc.consumer.controller;
 
 import com.lq.lqrpc.api.HelloService;
-import com.lq.lqrpc.client.annotation.LqRpcAutowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import com.lq.lqrpc.core.annotation.LqRpcAutowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
